@@ -1,1 +1,1 @@
-include ':ormlite', ':realm', ':core'
+include ':ormlite', ':realm'
