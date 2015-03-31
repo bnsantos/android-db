@@ -9,17 +9,17 @@ import java.util.Date;
  */
 public class User {
     @DatabaseField(generatedId = true)
-    private String id;
+    private long id;
     @DatabaseField(canBeNull = false)
     private String name;
     @DatabaseField(canBeNull = false)
-    private Date createdAd;
+    private Date createdAt;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -31,11 +31,19 @@ public class User {
         this.name = name;
     }
 
-    public Date getCreatedAd() {
-        return createdAd;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatedAd(Date createdAd) {
-        this.createdAd = createdAd;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof User) {
+            return id == ((User) o).id && name.equals(((User) o).name) && createdAt.equals(((User) o).createdAt);
+        }
+        return false;
     }
 }

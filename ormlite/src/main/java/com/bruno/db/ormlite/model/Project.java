@@ -2,7 +2,6 @@ package com.bruno.db.ormlite.model;
 
 import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
 
 import java.util.Date;
 
@@ -11,19 +10,19 @@ import java.util.Date;
  */
 public class Project {
     @DatabaseField(generatedId = true)
-    private String id;
+    private long id;
     @DatabaseField(canBeNull = false)
     private String name;
     @DatabaseField(canBeNull = false)
     private Date createdAt;
-    @ForeignCollectionField
+    //@ForeignCollectionField //TODO add users
     private ForeignCollection<User> users;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -49,5 +48,13 @@ public class Project {
 
     public void setUsers(ForeignCollection<User> users) {
         this.users = users;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Project) {
+            return id == ((Project) o).id && name.equals(((Project) o).name) && createdAt.equals(((Project) o).createdAt);
+        }
+        return false;
     }
 }
