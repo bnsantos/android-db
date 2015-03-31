@@ -14,6 +14,8 @@ public class User {
     private String name;
     @DatabaseField(canBeNull = false)
     private Date createdAt;
+    @DatabaseField(foreign = true)
+    private Project project;
 
     public long getId() {
         return id;
@@ -37,6 +39,14 @@ public class User {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     @Override

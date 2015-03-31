@@ -68,7 +68,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return mProjectDAO;
     }
 
-    public Dao getUsertDAO() throws SQLException {
+    public Dao getUserDAO() throws SQLException {
         if (mUserDAO == null) {
             mUserDAO = getDao(User.class);
         }
