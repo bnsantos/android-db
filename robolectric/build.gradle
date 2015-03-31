@@ -1,0 +1,25 @@
+evaluationDependsOn(":ormlite")
+
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    def androidModule = project(':ormlite')
+
+    testCompile project(path: ':ormlite', configuration: 'debugCompile')
+
+    def debugVariant = androidModule.android.libraryVariants.find({it.name == 'debug'})
+    testCompile debugVariant.javaCompile.classpath
+    testCompile debugVariant.javaCompile.outputs.files
+    testCompile files(androidModule.android.getBootClasspath())
+
+    testCompile 'junit:junit:4.+'
+    testCompile 'org.robolectric:robolectric:2.4'
+}
+
+tasks.withType(Test) {
+    scanForTestClasses = false
+    include "**/*Should.class"
+    include "**/*Test.class"
+    include "**/*Tests.class"
+}

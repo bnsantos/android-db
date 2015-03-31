@@ -1,1 +1,1 @@
-include ':ormlite', ':realm'
+include ':ormlite', ':realm', ':robolectric'

@@ -1,4 +1,4 @@
-package com.bruno.db.realm;
+package com.bruno.db.ormlite.bruno.db;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
