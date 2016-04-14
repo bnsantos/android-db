@@ -1,1 +1,1 @@
-include ':ormlite', ':realm', ':robolectric'
+include ':ormlite', ':realm', ':activeandroid', ':sugar', ':robolectric'

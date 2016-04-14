@@ -18,8 +18,8 @@ public class TestRunner  extends RobolectricTestRunner {
 
     @Override
     protected AndroidManifest getAppManifest(Config config) {
-        String manifestProperty = "ormlite/src/main/AndroidManifest.xml";
-        String resProperty = "ormlite/src/main/res";
+        String manifestProperty = "sugar/src/main/AndroidManifest.xml";
+        String resProperty = "sugar/src/main/res";
         return new AndroidManifest(Fs.fileFromPath(manifestProperty), Fs.fileFromPath(resProperty)) {
             @Override
             public int getTargetSdkVersion() {
