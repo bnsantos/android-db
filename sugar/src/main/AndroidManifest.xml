@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.bruno.db.sugar">
+
+    <application android:allowBackup="true"
+                 android:label="@string/app_name"
+                 android:name="com.orm.SugarApp"
+        >
+        <meta-data android:name="DATABASE" android:value="com.bruno.sugar.db" />
+        <meta-data android:name="VERSION" android:value="1" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.bruno.db.sugar.model" />
+
+    </application>
+
+</manifest>
